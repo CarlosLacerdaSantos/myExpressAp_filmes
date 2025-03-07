@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* ... (mantive o header e footer originais) ... */
+  
+  .movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Reduzido de 250px */
+    gap: 10px; /* Reduzido de 20px */
+    padding: 10px; /* Reduzido de 20px */
+  }
+  
+  .movie-card {
+    background-color: #333;
+    border-radius: 8px; /* Reduzido de 10px */
+    overflow: hidden;
+    transition: transform 0.3s;
+  }
+  
+  .movie-poster {
+    width: 100%;
+    height: 175px; /* Reduzido de 350px */
+    object-fit: cover;
+  }
+  
+  .movie-info {
+    padding: 8px; /* Reduzido de 10px */
+  }
+  
+  .movie-title {
+    font-size: 0.9em; /* Reduzido de 1.2em */
+    margin-bottom: 5px; /* Reduzido de 10px */
+    line-height: 1.2;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limita a 2 linhas */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  /* Ajustes para elementos internos */
+  .movie-stats {
+    gap: 10px; /* Reduzido de 20px */
+    font-size: 0.8em;
+  }
+  
+  .streaming-overlay {
+    gap: 8px; /* Reduzido de 15px */
+    padding: 8px; /* Reduzido de 15px */
+  }
+  
+  .streaming-icon {
+    width: 30px; /* Reduzido de 50px */
+    height: 30px; /* Reduzido de 50px */
+  }
+  
+  .streaming-icon_2 {
+    width: 45px; /* Ajuste proporcional */
+    height: 45px; /* Ajuste proporcional */
+  }
+  
+  /* Ajustes para mobile */
+  @media (max-width: 768px) {
+    .movie-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px;
+        padding: 5px;
+    }
+    
+    .movie-poster {
+        height: 150px; /* Altura menor para mobile */
+    }
+    
+    #searchInput {
+        width: 200px; /* Campo menor para mobile */
+    }
+  }
+  
+  /* Ajustes no modal para melhor proporção */
+  .modal-content {
+    width: 90%; /* Mais responsivo */
+    margin: 10% auto; /* Melhor posicionamento */
+    padding: 15px;
+  }
+  
+  /* Mantive outros estilos essenciais... */

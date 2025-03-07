@@ -1,0 +1,403 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #1a1a1a;
+  color: white;
+}
+
+header {
+  background-color: #000;
+  padding: 20px;
+  text-align: center;
+}
+
+.search-container {
+  margin: 20px;
+  text-align: center;
+}
+
+.footer {
+  background-color: #1a1a1a;
+  text-align: center;
+  padding: 10px 0;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.footer p {
+  margin: 5px 0;
+}
+
+.footer a {
+  color: #0077b5; /* LinkedIn blue */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+#backToTopBtn {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: #0077b5; /* Set a background color */
+  color: white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 15px; /* Some padding */
+  border-radius: 10px; /* Rounded corners */
+  font-size: 18px; /* Increase font size */
+}
+
+#backToTopBtn:hover {
+  background-color: #555; /* Add a dark-grey background on hover */
+}
+
+#searchInput {
+  padding: 10px;
+  width: 300px;
+  border-radius: 5px;
+  border: none;
+}
+
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+  padding: 10px;
+}
+
+.movie-card {
+  background-color: #333;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.movie-poster {
+  
+  height: 150px;
+  
+}
+
+.movie-info {
+  padding: 8px;
+}
+
+/* .movie-title {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+} */
+
+.movie-title {
+  font-size: 0.9em; /* Reduzido de 1.2em */
+  margin-bottom: 5px; /* Reduzido de 10px */
+  line-height: 1.2;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Limita a 2 linhas */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+  background-color: #222;
+  margin: 5% auto;
+  padding: 20px;
+  width: 70%;
+  border-radius: 10px;
+}
+
+.close {
+  float: right;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .movie-grid {
+      grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.modal-content {
+  max-width: 600px;
+}
+
+.movie-overview {
+  margin: 15px 0;
+  line-height: 1.5;
+}
+
+.movie-stats {
+  display: flex;
+  gap: 20px;
+  color: #ccc;
+}
+
+.movie-stats p {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.loader {
+  display: none;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #e50914;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+      transform: rotate(0deg);
+  }
+
+  100% {
+      transform: rotate(360deg);
+  }
+}
+
+/* Adicione ao seu CSS existente */
+.search-container {
+  position: relative;
+  margin: 20px auto;
+  max-width: 600px;
+}
+
+.search-loading {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: none;
+}
+
+.searching .search-loading {
+  display: block;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.search-loading::after {
+  content: "🔍";
+  animation: spin 1s linear infinite;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.movie-grid {
+  min-height: 100vh;
+}
+
+/* Adicione estes estilos */
+#searchResultsContainer {
+  order: -1;
+  margin-top: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+#searchResultsContainer h2 {
+  color: #fff;
+  border-bottom: 2px solid #ffc107;
+  padding-bottom: 10px;
+}
+
+.movie-grid[hidden] {
+  display: none;
+}
+
+.modal-content {
+  max-width: 800px;
+}
+
+.modal-content img {
+  border-radius: 10px;
+}
+
+.btn-warning {
+  background-color: #ffc107;
+  border-color: #ffc107;
+}
+
+.btn-warning:hover {
+  background-color: #e0a800;
+  border-color: #e0a800;
+}
+
+.streaming-section {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #444;
+}
+
+.providers-list {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.provider img {
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.provider img:hover {
+  transform: scale(1.1);
+}
+
+.movie-details {
+  line-height: 1.6;
+}
+
+.movie-details strong {
+  color: #ffc107;
+}
+
+/* Estilos atualizados garantindo funcionamento */
+.movie-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.streaming-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  flex-wrap: wrap;
+  padding: 15px;
+}
+
+.movie-card:hover .streaming-overlay {
+  opacity: 1;
+}
+
+.streaming-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.streaming-icon_2 {
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.streaming-icon_2:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.streaming-icon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Garante que os resultados da pesquisa apareçam no topo */
+#searchResultsContainer {
+  order: -1;
+  margin-top: 20px;
+}
+
+/* Estilo para as grids */
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Reduzido de 250px */
+  gap: 10px; /* Reduzido de 20px */
+  padding: 10px; /* Reduzido de 20px */
+}
+
+#movieGrid {
+  order: 1;
+}
+/* Esconde a grid não ativa */
+#movieGrid:not([style*="display: grid"]) {
+  display: none;
+}
+
+#backToTopBtn {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: #0077b5; /* Set a background color */
+  color: white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 15px; /* Some padding */
+  border-radius: 10px; /* Rounded corners */
+  font-size: 18px; /* Increase font size */
+}
+
+#backToTopBtn:hover {
+  background-color: #555; /* Add a dark-grey background on hover */
+}
+
+.skeleton {
+  background: #2a2a2a;
+  border-radius: 8px;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}

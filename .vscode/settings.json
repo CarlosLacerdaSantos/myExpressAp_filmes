@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/e78a41ad-e026-44dc-8132-311f1ded3243/resourceGroups/appsvc_linux_centralus2/providers/Microsoft.Web/sites/cinetop",
+    "appService.deploySubpath": "."
+}
