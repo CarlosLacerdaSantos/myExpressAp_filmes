@@ -38,3 +38,7 @@ cd cinemaxmyExpressAp_filmes
 
 # Obtenha sua API Key no TMDB e crie um arquivo .env
 echo "API_KEY=sua_chave_aqui" > .env
+
+# Obs: "vou deixar minha chave api no script uns dois meses, pra vc que não tem muito conhecimento usar o app de boa 
+#           depois eu vou deletar a chave"
+#       Use no seu notebook e se quizer clone a tela na sua smart tv para assistir os filmes direto na tv!
