@@ -1,4 +1,4 @@
-# 🎥 CineMax - Seu Guia Inteligente de Filmes
+# 🎥 Cinetop - Seu Guia Inteligente de Filmes
 
 [![Licença MIT](https://img.shields.io/badge/Licença-MIT-green.svg)](https://opensource.org/licenses/MIT)
 ![Versão 1.0](https://img.shields.io/badge/Versão-1.0-blue.svg)
