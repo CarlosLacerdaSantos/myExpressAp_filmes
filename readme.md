@@ -34,7 +34,14 @@
 git clone https://github.com/CarlosLacerdaSantos/myExpressAp_filmes.git
 
 # Acesse a pasta do projeto
-cd cinemaxmyExpressAp_filmes
+cd myExpressAp_filmes
+node ./bin/www 
+# No navegador abra 
+http://localhost:3001
+
+# Caso não tenha dado certo verifique:
+# Você tem uma chave API do TMDB ? porque pode ser que a chave que deixei no script ja esteja indisponivel
+# Voçê tem node.js 22 LTS instalado em sua maquína ?
 
 # Obtenha sua API Key no TMDB e crie um arquivo .env
 echo "API_KEY=sua_chave_aqui" > .env
