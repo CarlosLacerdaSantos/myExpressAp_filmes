@@ -3,7 +3,7 @@
 [![Licença MIT](https://img.shields.io/badge/Licença-MIT-green.svg)](https://opensource.org/licenses/MIT)
 ![Versão 1.0](https://img.shields.io/badge/Versão-1.0-blue.svg)
 
-**Descubra onde assistir seus filmes favoritos** - Uma aplicação web que combina dados em tempo real da API do TMDB com uma interface intuitiva para ajudar você a encontrar filmes e plataformas de streaming. veja aqui :   <div> <a href="https://cinetop.onrender.com" target="_blank">Cinetop</a></div>
+**Descubra onde assistir seus filmes favoritos** - Uma aplicação web que combina dados em tempo real da API do TMDB com uma interface intuitiva para ajudar você a encontrar filmes e plataformas de streaming. veja aqui : <a href="https://cinetop.onrender.com" target="_blank">Cinetop</a>
 
 
 
