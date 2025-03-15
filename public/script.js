@@ -36,12 +36,16 @@ async function getMovies() {
             }
 
             const response = await fetch(API_URL);
-            const data = await response.json();
+            const data = await response.json(),
+            filteredMovies = data.results.filter(movie => {
+                
+                return movie.poster_path !== null;
+            });
 
             totalPages = data.total_pages;
-            movies = isSearching ? data.results : [...movies, ...data.results];
+            movies = isSearching ? filteredMovies : [...movies, ...filteredMovies];
 
-            renderMovies(data.results, isSearching);
+            renderMovies(filteredMovies, isSearching);
             currentPage++;
         }
     } catch (error) {
