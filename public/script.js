@@ -29,7 +29,7 @@ async function getMovies() {
 
             let API_URL;
             if (isSearching) {
-                
+
                 API_URL = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=${LANGUAGE}&page=${currentPage}&query=${encodeURIComponent(currentSearchQuery)}`;
             } else {
                 API_URL = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=${LANGUAGE}&page=${currentPage}`;
@@ -37,10 +37,16 @@ async function getMovies() {
 
             const response = await fetch(API_URL);
             const data = await response.json(),
-            filteredMovies = data.results.filter(movie => {
-                
-                return movie.release_date > '2022-01-01' && movie.original_language === 'en' && movie.poster_path !== null;
-            });
+                filteredMovies = data.results
+                    .filter(movie => {            
+                        return movie.release_date > '2020-01-01' && 
+                               movie.original_language === 'en' && 
+                               movie.poster_path !== null;           
+                    })
+                    .sort((a, b) => {
+                        // Ordena por data de lançamento (mais recente primeiro)
+                        return new Date(b.release_date) - new Date(a.release_date);
+                    });
 
             totalPages = data.total_pages;
             movies = isSearching ? filteredMovies : [...movies, ...filteredMovies];
@@ -101,201 +107,296 @@ async function renderMovies(newMovies, isSearch = false) {
 }
 // Função para criar cards de filme
 async function createMovieCard(movie) {
-    const movieCard = document.createElement('div'); //cria a div
-    movieCard.className = 'movie-card'; // cria a classe da div
-    movieCard.id = `movie-${movie.id}`; // cria o id da div
+    const movieCard = document.createElement('div');
+    movieCard.className = 'movie-card';
+    movieCard.id = `movie-${movie.id}`;
     movieCard.innerHTML = `
         <img class='img-fluid' src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" class="movie-poster" alt="${movie.title}">
-        
         <div class="streaming-overlay"></div>
     `;
-    // Busca assíncrona dos provedores
+
+    // Função auxiliar para limpar e formatar nomes de filmes
+    function cleanMovieTitle(title) {
+        return title
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
+            .toLowerCase()
+            .replace(/[^a-z0-9\s]/g, ' ')
+            .trim()
+            .replace(/\s+/g, '-');
+    }
+
     getStreamingProviders(movie.id).then(providers => {
-       
         const overlay = movieCard.querySelector('.streaming-overlay');
+        // Log detalhado dos provedores
+        providers.forEach(provider => {
+            console.log(`
+                Provedor: ${provider.provider_name}
+                ID: ${provider.provider_id}
+                Prioridade: ${provider.display_priority}
+                Logo: ${provider.logo_path}
+                ----------------------------------------
+            `);
+        });
+        //providers.length > 0
+        //-1 > 0
         if (-1 > 0) {
             overlay.innerHTML = providers.map(provider => {
-                let providerUrl = '#'; // Default URL if provider is not recognized
-                const movieName = encodeURIComponent(movie.title); // Encode movie title for URL
+                let providerUrl = '#';
                 switch (provider.provider_name.toLowerCase().trim()) {
                     case 'netflix':
-                        providerUrl = `https://www.netflix.com/search?q=${movieName}`;
-                        break;
                     case 'netflix basic with ads':
-                        providerUrl = `https://www.netflix.com/search?q=${movieName}`;
+                        const netflixTitle = cleanMovieTitle(movie.title);
+                        providerUrl = `https://www.netflix.com/search/${netflixTitle}`;
                         break;
+
                     case 'amazon prime video':
-                        providerUrl = `https://www.primevideo.com/search?/ref=atv_nb_sug?ie=UTF8&phrase=${movieName}`;
+                        const primeTitle = encodeURIComponent(movie.title);
+                        providerUrl = `https://www.primevideo.com/search?phrase=${primeTitle}`;
                         break;
-                        case 'disney plus':
-                            const disneySlug = (movie.disneyPlusId || movieName)
-                                .toLowerCase()
-                                .replace(/\s+/g, '-')
-                                .replace(/[^a-z0-9-]/g, '');
-                            providerUrl = `https://www.disneyplus.com/?=${disneySlug}`;
-                            break;
+
+                    case 'disney plus':
+                        const disneyTitle = encodeURIComponent(movie.title);
+                        providerUrl = `https://www.disneyplus.com/pt-br`;
+                        break;
+
                     case 'max':
-                        providerUrl = `https://www.hbomax.com/search?q=${movieName}`;
-                        break;
                     case 'max basic with ads':
-                        providerUrl = `https://www.hbomax.com/search?q=${movieName}`;
+                        // Sempre usa o título original
+                        const maxTitle = movie.original_title;
+                        // Codifica para URL mantendo caracteres especiais
+                        const encodedMaxTitle = encodeURIComponent(maxTitle);
+                        // URL com regionalização BR
+                        providerUrl = `https://www.max.com/br/pt?q=${encodedMaxTitle}`;
                         break;
+
                     case 'claro tv+':
-                        providerUrl = `https://www.clarotvmais.com.br/busca?q=${movieName}`;
+                        const claroTitle = encodeURIComponent(movie.title);
+                        providerUrl = `https://www.clarotvmais.com.br/busca?q=${claroTitle}`;
                         break;
-                        case 'paramount plus':
-                            providerUrl = `https://www.paramountplus.com/br/search?q=${movieName}`;
-                            break;
-                    
-                        case 'mubi':
-                            const mubiSlug = (movie.original_title || movieName)
-                                .toLowerCase()
-                                .replace(/[^\w\s-]/g, '')
-                                .replace(/\s+/g, '-');
-                            providerUrl = `https://mubi.com/pt/br/films/${mubiSlug}`;
-                            break;
-                    case 'oldflix':
-                        providerUrl = `https://www.oldflix.com.br/${movieName}`;
+
+                    case 'paramount plus':
+                        const paramountTitle = encodeURIComponent(movie.title);
+                        providerUrl = `https://www.paramountplus.com/br/search/`;
                         break;
-                    case 'looke':
-                        providerUrl = `https://www.looke.com.br/search?q=${movieName}`;
+
+                    case 'mubi':
+                        const mubiTitle = movie.original_title || movie.title;
+                        const mubiSlug = cleanMovieTitle(mubiTitle);
+                        providerUrl = `https://mubi.com/pt/br/films/${mubiSlug}`;
                         break;
-                    case 'filmicca':
-                        providerUrl = `https://www.filmicca.com.br/search?q=${movieName}`;
-                        break;
+
                     case 'globoplay':
-                        providerUrl = `/`;
+                        const globoTitle = encodeURIComponent(movie.title);
+                        providerUrl = `https://globoplay.globo.com/busca/?q=${globoTitle}`;
                         break;
-                    case 'max amazon channel':
-                        providerUrl = `https://www.amazon.com/max/search?q=${movieName}`;
+
+                    case 'apple tv+':
+                        const appleTitle = encodeURIComponent(movie.title);
+                        providerUrl = `https://tv.apple.com/br/search?term=${appleTitle}`;
                         break;
-                     // ========== NOVOS CANAIS ADICIONADOS ==========
-  case 'apple tv+':
-    providerUrl = `https://tv.apple.com/search?term=${movieName}`;
-    break;
 
-  case 'hulu':
-    providerUrl = `https://www.hulu.com/search?q=${movieName}`;
-    break;
+                    case 'crunchyroll':
+                        const crunchyTitle = encodeURIComponent(movie.title);
+                        providerUrl = `https://www.crunchyroll.com/pt-br/search?q=${crunchyTitle}`;
+                        break;
 
-  case 'peacock':
-    providerUrl = `https://www.peacocktv.com/search?q=${movieName}`;
-    break;
+                    case 'discovery+':
+                        const discoveryTitle = encodeURIComponent(movie.title);
+                        providerUrl = `https://www.discoveryplus.com/br/search?q=${discoveryTitle}`;
+                        break;
 
-    case 'curiositystream':
-    providerUrl = `https://curiositystream.com/search?q=${movieName}`;
-    break;
+                    case 'pluto tv':
+                        const plutoTitle = encodeURIComponent(movie.title);
+                        providerUrl = `https://pluto.tv/pt/search?q=${plutoTitle}`;
+                        break;
 
-  case 'crunchyroll':
-    providerUrl = `https://www.crunchyroll.com/search?q=${movieName}`;
-    break;
+                    case 'star plus':
+                    case 'star+ amazon channel':
+                        const starTitle = encodeURIComponent(movie.title);
+                        providerUrl = `https://www.starplus.com/pt-br/search?q=${starTitle}`;
+                        break;
 
-  case 'youtube premium':
-    providerUrl = `https://www.youtube.com/results?search_query=${movieName}+movie`;
-    break;
+                    case 'hbo go':
+                        const hboTitle = encodeURIComponent(movie.title);
+                        providerUrl = `https://play.hbomax.com/search?q=${hboTitle}`;
+                        break;
 
-  case 'lionsgate+':
-    providerUrl = `https://www.lionsgateplus.com/search?q=${movieName}`;
-    break;
+                    case 'telecine':
+                    case 'telecine play':
+                        const telecineTitle = encodeURIComponent(movie.title);
+                        providerUrl = `https://www.primevideo.com/region/na/search/ref=atv_sr_sug_10?phrase=${telecineTitle}&ie=UTF8&jic=44%7CChF0ZWxlY2luZWNoYW5uZWxichIMc3Vic2NyaXB0aW9u`;
+                        break;
 
-  case 'pluto tv':
-    providerUrl = `https://pluto.tv/search?q=${movieName}`;
-    break;
+                    case 'vix+':
+                    case 'vix':
+                        const vixTitle = encodeURIComponent(movie.title);
+                        providerUrl = `https://www.vix.com/pt/busca?q=${vixTitle}`;
+                        break;
 
-  case 'discovery+':
-    providerUrl = `https://www.discoveryplus.com/search?q=${movieName}`;
-    break;
+                    case 'wow':
+                    case 'wow presents plus':
+                        const wowTitle = encodeURIComponent(movie.title);
+                        providerUrl = `https://www.wowpresentsplus.com/search?q=${wowTitle}`;
+                        break;
 
-  case 'vix':
-    providerUrl = `https://www.vix.com/busca?q=${movieName}`;
-    break;
+                    case 'looke':
+                        const lookeTitle = encodeURIComponent(movie.title);
+                        providerUrl = `https://www.looke.com.br/search?q=${lookeTitle}`;
+                        break;
 
-  case 'rakuten viki':
-    providerUrl = `https://www.viki.com/search?q=${movieName}`;
-    break;
+                    case 'oi play':
+                        const oiTitle = encodeURIComponent(movie.title);
+                        providerUrl = `https://www.oi.com.br/play/busca?q=${oiTitle}`;
+                        break;
 
-  case 'funimation':
-    providerUrl = `https://www.funimation.com/search/?q=${movieName}`;
-    break;
+                    case 'now':
+                        const nowTitle = encodeURIComponent(movie.title);
+                        providerUrl = `https://www.clarotvmais.com.br/busca?q=${nowTitle}`;
+                        break;
 
-  case 'tubi':
-    providerUrl = `https://tubitv.com/search/${movieName.replace(/\s+/g, '-')}`;
-    break;
+                    case 'paramount+ amazon channel':
+                        const paramountAmazonTitle = encodeURIComponent(movie.title);
+                        providerUrl = `https://www.amazon.com.br/gp/video/search?phrase=${paramountAmazonTitle}`;
+                        break;
 
-  case 'acorn tv':
-    providerUrl = `https://acorn.tv/search?q=${movieName}`;
-    break;
+                    case 'mgm amazon channel':
+                        const mgmTitle = encodeURIComponent(movie.title);
+                        providerUrl = `https://www.amazon.com.br/gp/video/search?phrase=${mgmTitle}`;
+                        break;
 
-  case 'microsoft store':
-    providerUrl = `https://www.microsoft.com/pt-br/search/shop?q=${movieName}`;
-    break;
+                    case 'starz play amazon channel':
+                        const starzTitle = encodeURIComponent(movie.title);
+                        providerUrl = `https://www.amazon.com.br/gp/video/search?phrase=${starzTitle}`;
+                        break;
 
-  // ... casos originais continuam abaixo ...
-  case 'globoplay':
-    providerUrl = `/`; // Atualizar conforme necessidade
-    break;
+                    case 'universal+ amazon channel':
+                        const universalTitle = encodeURIComponent(movie.title);
+                        providerUrl = `https://www.amazon.com.br/gp/video/search?phrase=${universalTitle}`;
+                        break;
 
-  case 'max amazon channel':
-    providerUrl = `https://www.amazon.com/max/search?q=${movieName}`;
-    break;
-}
-                    // Add more cases for other providers as needed
-                
+                    case 'paramount+ apple tv channel':
+                        const paramountAppleTitle = encodeURIComponent(movie.title);
+                        providerUrl = `https://tv.apple.com/br/channel/paramount-plus?q=${paramountAppleTitle}`;
+                        break;
+
+                    case 'starzplay':
+                        const starzplayTitle = encodeURIComponent(movie.title);
+                        providerUrl = `https://www.lionsgateplusla.com/br/search?q=${starzplayTitle}`;
+                        break;
+
+                    case 'directv go':
+                        const directvTitle = encodeURIComponent(movie.title);
+                        providerUrl = `https://www.directvgo.com/br/busca?q=${directvTitle}`;
+                        break;
+
+                    case 'sun nxt':
+                        const sunTitle = encodeURIComponent(movie.title);
+                        providerUrl = `https://www.sunnxt.com/search?q=${sunTitle}`;
+                        break;
+
+                    case 'curiosity stream':
+                        const curiosityTitle = encodeURIComponent(movie.title);
+                        providerUrl = `https://curiositystream.com/search?q=${curiosityTitle}`;
+                        break;
+
+                    case 'docsville':
+                        const docsvilleTitle = encodeURIComponent(movie.title);
+                        providerUrl = `https://docsville.com/search?q=${docsvilleTitle}`;
+                        break;
+
+                    case 'funimation':
+                        const funimationTitle = encodeURIComponent(movie.title);
+                        providerUrl = `https://www.crunchyroll.com/pt-br/search?q=${funimationTitle}`;
+                        break;
+
+                    default:
+                        providerUrl = '#';
+                        break;
+                }
+
                 return `
                     <a href="${providerUrl}" target="_blank">
                         <img class="streaming-icon" src="https://image.tmdb.org/t/p/w200${provider.logo_path}" alt="${provider.provider_name}">
                     </a>
                 `;
             }).join('');
-         } else {
-        
-        
-            idMovie =`${movie.id}` 
-            const link = document.createElement('a');
-            link.href = `https://ultraembed.com/filme/${movie.id}`;
-            link.target = '_blank';
-            link.style.display = 'block';
-            link.style.width = '80px';
-            link.style.height = '80px';
+        } else {
+            idMovie = `${movie.id}`
+            const alternativeProviders = [
+                {
+                    name: 'UltraEmbed',
+                    url: `https://ultraembed.com/filme/${movie.id}`,
+                    icon: 'img/ico.png'
+                },
+                {
+                    name: 'VidSrc',
+                    url: `https://vidsrc.to/embed/movie/${movie.id}`,
+                    icon: 'img/vidsrc.png'
+                },
+                {
+                    name: 'SuperEmbed',
+                    url: `https://multiembed.mov/directstream.php?video_id=${movie.id}&tmdb=1`,
+                    icon: 'img/super.png'
+                }
+            ];
 
-            const img = document.createElement('img');
-            img.src = 'img/ico.png';
-            img.alt = `Poster do filme: ${movie.title}`;
-            img.style.width = '100%';
-            img.style.borderRadius = '2px';
+            const providersContainer = document.createElement('div');
+            providersContainer.style.cssText = `
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 10;
+            `;
 
+            alternativeProviders.forEach(provider => {
+                const link = document.createElement('a');
+                link.href = provider.url;
+                link.target = '_blank';
+                link.style.cssText = `
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 40px;
+                    height: 40px;
+                    background-color: rgba(255, 0, 0, 0.8);
+                    border-radius: 50%;
+                    transition: all 0.3s ease;
+                    text-decoration: none;
+                    cursor: pointer;
+                `;
+                link.title = `Assistir em ${provider.name}`;
 
-            const btn = document.createElement('button');
-            btn.id = 'movieDetailsPage';
-            btn.textContent = 'Detalhes do filme';
-            btn.classList.add('btn', 'btn-details');
-            btn.setAttribute('aria-label', 'Ver detalhes do filme');
-            btn.style.padding = '10px 20px'; // Remova se usar CSS
-            btn.addEventListener('click', function () {
-            
-                // Sua lógica aqui
+                link.onmouseover = function() {
+                    this.style.backgroundColor = 'rgba(255, 0, 0, 1)';
+                    this.style.transform = 'scale(1.1)';
+                };
+
+                link.onmouseout = function() {
+                    this.style.backgroundColor = 'rgba(255, 0, 0, 0.8)';
+                    this.style.transform = 'scale(1)';
+                };
+
+                const playIcon = document.createElement('div');
+                playIcon.innerHTML = '▶';
+                playIcon.style.cssText = `
+                    color: white;
+                    font-size: 20px;
+                    line-height: 1;
+                    text-align: center;
+                `;
+
+                link.appendChild(playIcon);
+                providersContainer.appendChild(link);
             });
-            link.appendChild(img);
-            overlay.appendChild(link);
-            //overlay.appendChild(btn)
-        //     const videoLink = document.createElement('a');
-        //     const videoLink_2 = document.createElement('a');
-        //     videoLink.href = 'https://ultraembed.com/filme/' + movie.id;
-        //     videoLink_2.href = 'https://vidsrc.to/embed/movie/' + movie.id;
-        //     videoLink.textContent = 'Clique aqui para assistir ao filme em Português';
-        //     videoLink_2.textContent = 'Clique aqui para assistir ao filme em Inglês';
-        //     videoLink.target = '_blank'; // Abre o link em uma nova aba
-        //     videoLink_2.target = '_blank'; // Abre o link em uma nova aba
-        //     videoLink.style.color = '#fff';
-        //     videoLink_2.style.color = '#fff';
-        //     videoLink.style.fontSize = '1em';
-        //     videoLink_2.style.fontSize = '1em';
-        //     videoLink.style.textDecoration = 'none';
-        //     videoLink_2.style.textDecoration = 'none';
 
-        //     overlay.innerHTML = ''; // Clear any existing content
-        //     overlay.appendChild(videoLink);
-        //     overlay.appendChild(videoLink_2);
+            overlay.appendChild(providersContainer);
         }
     });
 
@@ -350,14 +451,95 @@ function initScrollObserver() {
 }
 //Adicione esta função para buscar os provedores de streaming 
 async function getStreamingProviders(movieId) {
-    if (providersCache.has(movieId)) return providersCache.get(movieId); //nova linha
+    if (providersCache.has(movieId)) return providersCache.get(movieId);
     try {
         const API_KEY = '5d089ef4c7749b3acc4f404cbfced723';
         const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/watch/providers?api_key=${API_KEY}`);
         const data = await response.json();
 
-        // Filtra os provedores do Brasil (BR) e pega os de streaming (flatrate)
-        const providers = data.results.BR?.flatrate || [];
+        let providers = data.results.BR?.flatrate || [];
+
+        // Mapeamento de canais para suas plataformas principais
+        const channelMapping = {
+            'paramount plus apple tv channel': 'paramount plus',
+            'paramount plus premium': 'paramount plus',
+            'paramount+ apple tv channel': 'paramount plus',
+            'paramount+ amazon channel': 'paramount plus',
+            'telecine amazon channel': 'amazon prime video',
+            'max amazon channel': 'max',
+            'star+ amazon channel': 'star plus',
+            'mgm amazon channel': 'amazon prime video',
+            'universal+ amazon channel': 'amazon prime video',
+            'adrenalina pura amazon channel': 'amazon prime video',
+            'adrenalina pura apple tv channel': 'apple tv+',
+            'looke amazon channel': 'looke'
+        };
+
+        // ID principal para cada provedor
+        const mainProviderIds = {
+            'paramount plus': 531,
+            'max': 1899,
+            'netflix': 8,
+            'amazon prime video': 119,
+            'disney plus': 337,
+            'globoplay': 307,
+            'looke': 47
+        };
+
+        // Ajusta os nomes dos provedores baseado no mapeamento
+        providers = providers.map(provider => {
+            const lowerName = provider.provider_name.toLowerCase();
+            if (channelMapping[lowerName]) {
+                const mainName = channelMapping[lowerName];
+                return {
+                    ...provider,
+                    provider_name: mainName,
+                    provider_id: mainProviderIds[mainName] || provider.provider_id,
+                    is_channel: true,
+                    original_name: provider.provider_name
+                };
+            }
+            return provider;
+        });
+
+        // Remove duplicatas priorizando provedores principais
+        providers = providers.reduce((acc, current) => {
+            const existingProvider = acc.find(p => 
+                p.provider_name.toLowerCase() === current.provider_name.toLowerCase()
+            );
+
+            if (!existingProvider) {
+                acc.push(current);
+            } else if (existingProvider.provider_id !== mainProviderIds[existingProvider.provider_name.toLowerCase()]) {
+                // Se o existente não é o ID principal, substitui pelo atual
+                const index = acc.indexOf(existingProvider);
+                acc[index] = current;
+            }
+            return acc;
+        }, []);
+
+        // Ordena por prioridade ajustada
+        providers.sort((a, b) => {
+            // Prioridade fixa para principais serviços
+            const mainServices = {
+                'netflix': 0,
+                'amazon prime video': 1,
+                'disney plus': 2,
+                'max': 3,
+                'paramount plus': 4,
+                'globoplay': 5,
+                'looke': 6
+            };
+
+            const aName = a.provider_name.toLowerCase();
+            const bName = b.provider_name.toLowerCase();
+
+            const aPriority = mainServices[aName] !== undefined ? mainServices[aName] : a.display_priority;
+            const bPriority = mainServices[bName] !== undefined ? mainServices[bName] : b.display_priority;
+
+            return aPriority - bPriority;
+        });
+
         providersCache.set(movieId, providers);
         return providers;
     } catch (error) {
