@@ -28,13 +28,6 @@
 
 ### Pré-requisitos
 - Navegador moderno
-- Conta gratuita no [TMDB](https://www.themoviedb.org/)
-
-- ### Atenção:
-- vou deixar minha chave api no script uns dois meses pra vc que não tem muito conhecimento usar o app de boa; 
-- Instale no seu notebook ou desktop e se quizer clone a tela deste na sua smart tv para assistir os filmes direto na tv!
-- deixei todos os filmes com o provedor que da acesso para assistir os filmes online na faixa!💕
-### Instalação
 
 # 👌Como rodar o app na sua maquina
 ```bash
