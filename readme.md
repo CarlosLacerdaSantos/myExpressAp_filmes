@@ -36,23 +36,21 @@
 - deixei todos os filmes com o provedor que da acesso para assistir os filmes online na faixa!💕
 ### Instalação
 
-# 👌Ter Node 22 lts instalado na sua maquina
+# 👌Como rodar o app na sua maquina
 ```bash
 # Clone o repositório
+# com o git instalado no seu computador execute o comando abaixo
 git clone https://github.com/CarlosLacerdaSantos/myExpressAp_filmes.git
 
 # Acesse a pasta do projeto
-cd myExpressAp_filmes
-# execute os comandos
-npm install
-node ./bin/www 
-# No navegador abra 
-http://localhost:3001
-# Caso não tenha dado certo verifique:
-# Você tem uma chave API do TMDB ? porque pode ser que a chave que deixei no script ja esteja indisponivel
-# Voçê tem node.js 22 LTS instalado em sua maquína ?
 
-# Obtenha sua API Key no TMDB e crie um arquivo .env
-echo "API_KEY=sua_chave_aqui" > .env
+cd myExpressAp_filmes
+
+# execute o script start_app.bat como administrador
+# esse script vai instalar todas as dependencias, depois ira pedir para 
+# fechar o shell , executar esse arquivo novamente com um duplo click 
+# isso deverá abrir o browser e rodar o app no seu computador
+
+
 
 
