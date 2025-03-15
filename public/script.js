@@ -39,7 +39,7 @@ async function getMovies() {
             const data = await response.json(),
             filteredMovies = data.results.filter(movie => {
                 
-                return movie.poster_path !== null;
+                return movie.release_date > '2022-01-01' && movie.original_language === 'en' && movie.poster_path !== null;
             });
 
             totalPages = data.total_pages;
