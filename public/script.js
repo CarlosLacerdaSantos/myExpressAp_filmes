@@ -1,1 +1,301 @@
-const a0_0x56eb28=a0_0x3497;(function(_0x4b2be4,_0x1f0890){const _0x31c3a1=a0_0x3497,_0x5673f9=_0x4b2be4();while(!![]){try{const _0x35723f=parseInt(_0x31c3a1(0x1dc))/0x1+-parseInt(_0x31c3a1(0x1ab))/0x2*(-parseInt(_0x31c3a1(0x213))/0x3)+-parseInt(_0x31c3a1(0x1fd))/0x4*(-parseInt(_0x31c3a1(0x1ac))/0x5)+-parseInt(_0x31c3a1(0x1ed))/0x6+-parseInt(_0x31c3a1(0x242))/0x7+-parseInt(_0x31c3a1(0x246))/0x8*(-parseInt(_0x31c3a1(0x1f8))/0x9)+-parseInt(_0x31c3a1(0x1f9))/0xa;if(_0x35723f===_0x1f0890)break;else _0x5673f9['push'](_0x5673f9['shift']());}catch(_0x584a47){_0x5673f9['push'](_0x5673f9['shift']());}}}(a0_0x38ba,0x25f58));let currentPage=0x1,isLoading=![],totalPages=0x3e8,isSearching=![],movies=[];function a0_0x38ba(){const _0xaf31b9=['block','telecine','none','style','img/super.png','https://www.clarotvmais.com.br/busca?q=','hbo\x20go','filter','movie-card','directv\x20go','79880mOdirn','https://curiositystream.com/search?q=','&language=','https://www.paramountplus.com/br/search/','mgm\x20amazon\x20channel','indexOf','movieGrid','forEach','observe','https://api.themoviedb.org/3/search/movie?api_key=','https://www.primevideo.com/search?phrase=','star\x20plus','toLowerCase','reduce','netflix\x20basic\x20with\x20ads','.loader','addEventListener','293466ThyekV','catch','then','\x22\x20target=\x22_blank\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<img\x20class=\x22streaming-icon\x22\x20src=\x22https://image.tmdb.org/t/p/w200','name','provider_name','isIntersecting','display_priority','log','mubi','img/vidsrc.png','225CmYdPK','982640aLLNCH','https://www.oi.com.br/play/busca?q=','set','.streaming-overlay','704fKVrTr','display','replace','https://www.lionsgateplusla.com/br/search?q=','length','trim','&page=','SuperEmbed','universal+\x20amazon\x20channel','total_pages','smooth','starzplay','Erro\x20ao\x20buscar\x20provedores:','release_date','https://mubi.com/pt/br/films/','error','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20display:\x20flex;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20align-items:\x20center;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20justify-content:\x20center;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20width:\x2040px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20height:\x2040px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20background-color:\x20rgba(255,\x200,\x200,\x200.8);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20border-radius:\x2050%;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20transition:\x20all\x200.3s\x20ease;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20text-decoration:\x20none;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20cursor:\x20pointer;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','\x22\x20alt=\x22','all','now','createDocumentFragment','grid','620715dMbqrz','\x22\x20class=\x22movie-poster\x22\x20alt=\x22','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20color:\x20white;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-size:\x2020px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20line-height:\x201;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20text-align:\x20center;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','https://pluto.tv/pt/search?q=','https://globoplay.globo.com/busca/?q=','value','https://www.amazon.com.br/gp/video/search?phrase=','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Prioridade:\x20','https://docsville.com/search?q=','vix+','&tmdb=1','logo_path','onmouseout','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<a\x20href=\x22','https://www.wowpresentsplus.com/search?q=','https://www.starplus.com/pt-br/search?q=','title','target','original_language','createElement','https://multiembed.mov/directstream.php?video_id=','2020-01-01','https://www.crunchyroll.com/pt-br/search?q=','searchResultsContainer','5d089ef4c7749b3acc4f404cbfced723','original_title','\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</a>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','telecine\x20play','appendChild','\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22streaming-overlay\x22></div>\x0a\x20\x20\x20\x20','paramount+\x20amazon\x20channel','&ie=UTF8&jic=44%7CChF0ZWxlY2luZWNoYW5uZWxichIMc3Vic2NyaXB0aW9u','curiosity\x20stream','className','https://tv.apple.com/br/channel/paramount-plus?q=','json','amazon\x20prime\x20video','getFullYear','innerHTML','paramount+\x20apple\x20tv\x20channel','movie-','globoplay','results','onmouseover','find','wow','pluto\x20tv','919261zUiyhc','cssText','getElementById','pt-BR','10888DMMGJa','https://play.hbomax.com/search?q=','starz\x20play\x20amazon\x20channel','https://www.primevideo.com/region/na/search/ref=atv_sr_sug_10?phrase=','https://vidsrc.to/embed/movie/','href','transform','searchInput','2yOahcW','3215kkAojE','poster_path','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Provedor:\x20','scale(1.1)','claro\x20tv+','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20----------------------------------------\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','https://www.discoveryplus.com/br/search?q=','https://www.max.com/br/pt?q=','NFD','normalize','div','sort','apple\x20tv+','https://tv.apple.com/br/search?term=','https://www.looke.com.br/search?q=','provider_id','https://api.themoviedb.org/3/movie/popular?api_key=','funimation','Erro\x20ao\x20carregar\x20filmes:','get','input','backgroundColor','/watch/providers?api_key=','rgba(255,\x200,\x200,\x200.8)','paramount\x20plus','100px','join','map','url','disney\x20plus','wow\x20presents\x20plus','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Logo:\x20','max','star+\x20amazon\x20channel','discovery+','flatrate','https://www.sunnxt.com/search?q=','querySelector'];a0_0x38ba=function(){return _0xaf31b9;};return a0_0x38ba();}const providersCache=new Map(),movieGrid=document[a0_0x56eb28(0x244)](a0_0x56eb28(0x1e2)),searchResultsContainer=document['getElementById'](a0_0x56eb28(0x22a)),searchResultsGrid=document['getElementById']('searchResultsGrid'),searchInput=document['getElementById'](a0_0x56eb28(0x24d));async function getMovies(){const _0x277fa3=a0_0x56eb28;if(isLoading||currentPage>totalPages)return;isLoading=!![],showLoader();const _0x2fa32a='5d089ef4c7749b3acc4f404cbfced723',_0x2af377=_0x277fa3(0x245),_0x324897=0x5;try{for(let _0x175b66=0x0;_0x175b66<totalPages;_0x175b66++){if(currentPage>totalPages)break;let _0x2de3ec;isSearching?_0x2de3ec=_0x277fa3(0x1e5)+_0x2fa32a+'&language='+_0x2af377+_0x277fa3(0x203)+currentPage+'&query='+encodeURIComponent(currentSearchQuery):_0x2de3ec=_0x277fa3(0x1bc)+_0x2fa32a+_0x277fa3(0x1de)+_0x2af377+'&page='+currentPage;const _0x3a301d=await fetch(_0x2de3ec),_0x59ea8e=await _0x3a301d['json'](),_0xcaca85=_0x59ea8e[_0x277fa3(0x23d)][_0x277fa3(0x1d9)](_0x2a32e9=>{const _0x509c17=_0x277fa3;return _0x2a32e9[_0x509c17(0x20a)]>_0x509c17(0x228)&&_0x2a32e9[_0x509c17(0x225)]==='en'&&_0x2a32e9[_0x509c17(0x1ad)]!==null;})[_0x277fa3(0x1b7)]((_0x474612,_0x3bd1a1)=>{const _0x439534=_0x277fa3;return new Date(_0x3bd1a1[_0x439534(0x20a)])-new Date(_0x474612[_0x439534(0x20a)]);});totalPages=_0x59ea8e[_0x277fa3(0x206)],movies=isSearching?_0xcaca85:[...movies,..._0xcaca85],renderMovies(_0xcaca85,isSearching),currentPage++;}}catch(_0x1b41d5){console[_0x277fa3(0x20c)](_0x277fa3(0x1be),_0x1b41d5);}finally{isLoading=![],hideLoader();}}function showLoader(){const _0x49c27d=a0_0x56eb28;document[_0x49c27d(0x1d1)]('.loader')[_0x49c27d(0x1d5)][_0x49c27d(0x1fe)]=_0x49c27d(0x1d2);}function hideLoader(){const _0x5a3128=a0_0x56eb28;document[_0x5a3128(0x1d1)](_0x5a3128(0x1eb))['style'][_0x5a3128(0x1fe)]=_0x5a3128(0x1d4);}async function renderMovies(_0xe7f8db,_0x42feb7=![]){const _0x702cfb=a0_0x56eb28,_0x11c960=_0x42feb7?searchResultsGrid:movieGrid,_0x1bc985=_0x42feb7?movieGrid:searchResultsGrid;if(_0x42feb7){searchResultsContainer[_0x702cfb(0x1d5)][_0x702cfb(0x1fe)]=_0x702cfb(0x1d2),_0x1bc985[_0x702cfb(0x1d5)][_0x702cfb(0x1fe)]=_0x702cfb(0x1d4);if(currentPage===0x1)_0x11c960['innerHTML']='';}else searchResultsContainer['style'][_0x702cfb(0x1fe)]='none',_0x1bc985[_0x702cfb(0x1d5)]['display']=_0x702cfb(0x1d4),movieGrid[_0x702cfb(0x1d5)][_0x702cfb(0x1fe)]=_0x702cfb(0x212);const _0x295f21=await Promise[_0x702cfb(0x20f)](_0xe7f8db[_0x702cfb(0x1d9)](_0x1cf648=>!document[_0x702cfb(0x244)](_0x702cfb(0x23b)+_0x1cf648['id']))[_0x702cfb(0x1c7)](async _0x3e949c=>await createMovieCard(_0x3e949c))),_0x5b5519=document[_0x702cfb(0x211)]();_0x295f21[_0x702cfb(0x1e3)](_0x1dcb63=>_0x5b5519['appendChild'](_0x1dcb63)),_0x11c960['appendChild'](_0x5b5519),_0x42feb7&&currentPage===0x1&&window['scrollTo']({'top':searchResultsContainer['offsetTop'],'behavior':_0x702cfb(0x207)});}function a0_0x3497(_0x378857,_0x4b0a4c){const _0x38ba85=a0_0x38ba();return a0_0x3497=function(_0x3497a1,_0x4f46fe){_0x3497a1=_0x3497a1-0x1ab;let _0x4a391d=_0x38ba85[_0x3497a1];return _0x4a391d;},a0_0x3497(_0x378857,_0x4b0a4c);}async function createMovieCard(_0x319c83){const _0x11e064=a0_0x56eb28,_0x5351b1=document['createElement'](_0x11e064(0x1b6));_0x5351b1[_0x11e064(0x234)]=_0x11e064(0x1da),_0x5351b1['id']=_0x11e064(0x23b)+_0x319c83['id'],_0x5351b1[_0x11e064(0x239)]='\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22release-year\x22>'+new Date(_0x319c83[_0x11e064(0x20a)])[_0x11e064(0x238)]()+'</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<img\x20class=\x27img-fluid\x27\x20src=\x22https://image.tmdb.org/t/p/w500/'+_0x319c83['poster_path']+_0x11e064(0x214)+_0x319c83[_0x11e064(0x223)]+_0x11e064(0x230);function _0x1bf136(_0x7cebfd){const _0x44a66a=_0x11e064;return _0x7cebfd[_0x44a66a(0x1b5)](_0x44a66a(0x1b4))[_0x44a66a(0x1ff)](/[\u0300-\u036f]/g,'')[_0x44a66a(0x1e8)]()[_0x44a66a(0x1ff)](/[^a-z0-9\s]/g,'\x20')[_0x44a66a(0x202)]()[_0x44a66a(0x1ff)](/\s+/g,'-');}return getStreamingProviders(_0x319c83['id'])['then'](_0x26df45=>{const _0x2ffebc=_0x11e064,_0x1242b9=_0x5351b1['querySelector'](_0x2ffebc(0x1fc));_0x26df45[_0x2ffebc(0x1e3)](_0x1e859e=>{const _0x450c82=_0x2ffebc;console[_0x450c82(0x1f5)](_0x450c82(0x1ae)+_0x1e859e[_0x450c82(0x1f2)]+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20ID:\x20'+_0x1e859e[_0x450c82(0x1bb)]+_0x450c82(0x21a)+_0x1e859e[_0x450c82(0x1f4)]+_0x450c82(0x1cb)+_0x1e859e[_0x450c82(0x21e)]+_0x450c82(0x1b1));});if(_0x26df45[_0x2ffebc(0x201)]>0x0)_0x1242b9[_0x2ffebc(0x239)]=_0x26df45[_0x2ffebc(0x1c7)](_0x8e7043=>{const _0x40ee04=_0x2ffebc;let _0x400419='#';switch(_0x8e7043[_0x40ee04(0x1f2)][_0x40ee04(0x1e8)]()['trim']()){case'netflix':case _0x40ee04(0x1ea):const _0x5252a5=_0x1bf136(_0x319c83['title']);_0x400419='https://www.netflix.com/search/'+_0x5252a5;break;case'amazon\x20prime\x20video':const _0xaa3055=encodeURIComponent(_0x319c83[_0x40ee04(0x223)]);_0x400419=_0x40ee04(0x1e6)+_0xaa3055;break;case _0x40ee04(0x1c9):const _0xdfabe1=encodeURIComponent(_0x319c83[_0x40ee04(0x223)]);_0x400419='https://www.disneyplus.com/pt-br';break;case _0x40ee04(0x1cc):case'max\x20basic\x20with\x20ads':const _0x56f315=_0x319c83[_0x40ee04(0x22c)],_0x68821e=encodeURIComponent(_0x56f315);_0x400419=_0x40ee04(0x1b3)+_0x68821e;break;case _0x40ee04(0x1b0):const _0x5b4500=encodeURIComponent(_0x319c83[_0x40ee04(0x223)]);_0x400419=_0x40ee04(0x1d7)+_0x5b4500;break;case _0x40ee04(0x1c4):const _0x248ed9=encodeURIComponent(_0x319c83[_0x40ee04(0x223)]);_0x400419=_0x40ee04(0x1df);break;case _0x40ee04(0x1f6):const _0x28733e=_0x319c83[_0x40ee04(0x22c)]||_0x319c83[_0x40ee04(0x223)],_0x2cda86=_0x1bf136(_0x28733e);_0x400419=_0x40ee04(0x20b)+_0x2cda86;break;case _0x40ee04(0x23c):const _0x27d0c5=encodeURIComponent(_0x319c83[_0x40ee04(0x223)]);_0x400419=_0x40ee04(0x217)+_0x27d0c5;break;case'apple\x20tv+':const _0x68eff9=encodeURIComponent(_0x319c83['title']);_0x400419=_0x40ee04(0x1b9)+_0x68eff9;break;case'crunchyroll':const _0x32c1ef=encodeURIComponent(_0x319c83[_0x40ee04(0x223)]);_0x400419=_0x40ee04(0x229)+_0x32c1ef;break;case _0x40ee04(0x1ce):const _0x2a9ef2=encodeURIComponent(_0x319c83[_0x40ee04(0x223)]);_0x400419=_0x40ee04(0x1b2)+_0x2a9ef2;break;case _0x40ee04(0x241):const _0x27948b=encodeURIComponent(_0x319c83[_0x40ee04(0x223)]);_0x400419=_0x40ee04(0x216)+_0x27948b;break;case _0x40ee04(0x1e7):case _0x40ee04(0x1cd):const _0x475308=encodeURIComponent(_0x319c83[_0x40ee04(0x223)]);_0x400419=_0x40ee04(0x222)+_0x475308;break;case _0x40ee04(0x1d8):const _0x1613fd=encodeURIComponent(_0x319c83[_0x40ee04(0x223)]);_0x400419=_0x40ee04(0x247)+_0x1613fd;break;case _0x40ee04(0x1d3):case _0x40ee04(0x22e):const _0x37a80f=encodeURIComponent(_0x319c83['title']);_0x400419=_0x40ee04(0x249)+_0x37a80f+_0x40ee04(0x232);break;case _0x40ee04(0x21c):case'vix':const _0x529d5d=encodeURIComponent(_0x319c83[_0x40ee04(0x223)]);_0x400419='https://www.vix.com/pt/busca?q='+_0x529d5d;break;case _0x40ee04(0x240):case _0x40ee04(0x1ca):const _0x2de2b1=encodeURIComponent(_0x319c83[_0x40ee04(0x223)]);_0x400419=_0x40ee04(0x221)+_0x2de2b1;break;case'looke':const _0x3d1156=encodeURIComponent(_0x319c83[_0x40ee04(0x223)]);_0x400419=_0x40ee04(0x1ba)+_0x3d1156;break;case'oi\x20play':const _0x4004ec=encodeURIComponent(_0x319c83['title']);_0x400419=_0x40ee04(0x1fa)+_0x4004ec;break;case _0x40ee04(0x210):const _0x27377b=encodeURIComponent(_0x319c83[_0x40ee04(0x223)]);_0x400419=_0x40ee04(0x1d7)+_0x27377b;break;case _0x40ee04(0x231):const _0x28f6c4=encodeURIComponent(_0x319c83[_0x40ee04(0x223)]);_0x400419='https://www.amazon.com.br/gp/video/search?phrase='+_0x28f6c4;break;case _0x40ee04(0x1e0):const _0x4cda82=encodeURIComponent(_0x319c83[_0x40ee04(0x223)]);_0x400419=_0x40ee04(0x219)+_0x4cda82;break;case _0x40ee04(0x248):const _0x39d8ce=encodeURIComponent(_0x319c83[_0x40ee04(0x223)]);_0x400419='https://www.amazon.com.br/gp/video/search?phrase='+_0x39d8ce;break;case _0x40ee04(0x205):const _0x5f257f=encodeURIComponent(_0x319c83[_0x40ee04(0x223)]);_0x400419='https://www.amazon.com.br/gp/video/search?phrase='+_0x5f257f;break;case _0x40ee04(0x23a):const _0x24cd1c=encodeURIComponent(_0x319c83[_0x40ee04(0x223)]);_0x400419=_0x40ee04(0x235)+_0x24cd1c;break;case _0x40ee04(0x208):const _0x2a35df=encodeURIComponent(_0x319c83[_0x40ee04(0x223)]);_0x400419=_0x40ee04(0x200)+_0x2a35df;break;case _0x40ee04(0x1db):const _0x3c49cb=encodeURIComponent(_0x319c83[_0x40ee04(0x223)]);_0x400419='https://www.directvgo.com/br/busca?q='+_0x3c49cb;break;case'sun\x20nxt':const _0x5a3b15=encodeURIComponent(_0x319c83[_0x40ee04(0x223)]);_0x400419=_0x40ee04(0x1d0)+_0x5a3b15;break;case _0x40ee04(0x233):const _0x167029=encodeURIComponent(_0x319c83['title']);_0x400419=_0x40ee04(0x1dd)+_0x167029;break;case'docsville':const _0x4410a5=encodeURIComponent(_0x319c83['title']);_0x400419=_0x40ee04(0x21b)+_0x4410a5;break;case _0x40ee04(0x1bd):const _0x4a0e5b=encodeURIComponent(_0x319c83['title']);_0x400419=_0x40ee04(0x229)+_0x4a0e5b;break;default:_0x400419='#';break;}return _0x40ee04(0x220)+_0x400419+_0x40ee04(0x1f0)+_0x8e7043['logo_path']+_0x40ee04(0x20e)+_0x8e7043['provider_name']+_0x40ee04(0x22d);})[_0x2ffebc(0x1c6)]('');else{idMovie=''+_0x319c83['id'];const _0x1c26e1=[{'name':'UltraEmbed','url':'https://ultraembed.com/filme/'+_0x319c83['id'],'icon':'img/ico.png'},{'name':'VidSrc','url':_0x2ffebc(0x24a)+_0x319c83['id'],'icon':_0x2ffebc(0x1f7)},{'name':_0x2ffebc(0x204),'url':_0x2ffebc(0x227)+_0x319c83['id']+_0x2ffebc(0x21d),'icon':_0x2ffebc(0x1d6)}],_0x41c280=document[_0x2ffebc(0x226)](_0x2ffebc(0x1b6));_0x41c280['style']['cssText']='\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20display:\x20flex;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20flex-direction:\x20column;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20gap:\x2010px;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20justify-content:\x20center;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20align-items:\x20center;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20position:\x20absolute;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20top:\x2050%;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20left:\x2050%;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20transform:\x20translate(-50%,\x20-50%);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20z-index:\x2010;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20',_0x1c26e1[_0x2ffebc(0x1e3)](_0x57f5ef=>{const _0x18b211=_0x2ffebc,_0x4fe246=document[_0x18b211(0x226)]('a');_0x4fe246[_0x18b211(0x24b)]=_0x57f5ef[_0x18b211(0x1c8)],_0x4fe246[_0x18b211(0x224)]='_blank',_0x4fe246[_0x18b211(0x1d5)][_0x18b211(0x243)]=_0x18b211(0x20d),_0x4fe246[_0x18b211(0x223)]='Assistir\x20em\x20'+_0x57f5ef[_0x18b211(0x1f1)],_0x4fe246[_0x18b211(0x23e)]=function(){const _0x86b247=_0x18b211;this[_0x86b247(0x1d5)][_0x86b247(0x1c1)]='rgba(255,\x200,\x200,\x201)',this[_0x86b247(0x1d5)][_0x86b247(0x24c)]=_0x86b247(0x1af);},_0x4fe246[_0x18b211(0x21f)]=function(){const _0x334497=_0x18b211;this['style'][_0x334497(0x1c1)]=_0x334497(0x1c3),this[_0x334497(0x1d5)][_0x334497(0x24c)]='scale(1)';};const _0x5a0ecf=document['createElement']('div');_0x5a0ecf[_0x18b211(0x239)]='▶',_0x5a0ecf['style']['cssText']=_0x18b211(0x215),_0x4fe246[_0x18b211(0x22f)](_0x5a0ecf),_0x41c280[_0x18b211(0x22f)](_0x4fe246);}),_0x1242b9[_0x2ffebc(0x22f)](_0x41c280);}}),_0x5351b1;}function searchMovies(_0x4354dd){const _0x1cc079=a0_0x56eb28,_0x4318a2=_0x1cc079(0x22b),_0x3dd2b3=_0x1cc079(0x245),_0x54eadf=_0x1cc079(0x1e5)+_0x4318a2+_0x1cc079(0x1de)+_0x3dd2b3+'&query='+encodeURIComponent(_0x4354dd);fetch(_0x54eadf)[_0x1cc079(0x1ef)](_0x47ac40=>_0x47ac40[_0x1cc079(0x236)]())[_0x1cc079(0x1ef)](_0x240f26=>{const _0x1f2e04=_0x1cc079;movies=_0x240f26[_0x1f2e04(0x23d)],renderMovies(movies);})[_0x1cc079(0x1ee)](_0x47553e=>{const _0x9a65a4=_0x1cc079;console[_0x9a65a4(0x20c)]('Erro\x20na\x20pesquisa:',_0x47553e);});}let searchTimeout;document[a0_0x56eb28(0x244)]('searchInput')[a0_0x56eb28(0x1ec)](a0_0x56eb28(0x1c0),_0x34874d=>{const _0xd0246e=a0_0x56eb28,_0x3fac80=_0x34874d[_0xd0246e(0x224)][_0xd0246e(0x218)][_0xd0246e(0x202)]();if(_0x3fac80['length']>=0x3)movieGrid[_0xd0246e(0x239)]='',searchMovies(_0x3fac80);else _0x3fac80[_0xd0246e(0x201)]===0x0&&(currentPage=0x1,movieGrid[_0xd0246e(0x239)]='',getMovies(),renderMovies(data[_0xd0246e(0x23d)],isSearching),currentPage++);});function initScrollObserver(){const _0x9a3fc3=a0_0x56eb28,_0x5dffaf=new IntersectionObserver(_0x415bf7=>{const _0x45b646=a0_0x3497;_0x415bf7[_0x45b646(0x1e3)](_0x32636e=>{const _0x4c2552=_0x45b646;_0x32636e[_0x4c2552(0x1f3)]&&!isLoading&&currentPage<=totalPages&&getMovies();});},{'rootMargin':_0x9a3fc3(0x1c5),'threshold':0x1});_0x5dffaf[_0x9a3fc3(0x1e4)](document[_0x9a3fc3(0x1d1)](_0x9a3fc3(0x1eb)));}async function getStreamingProviders(_0x5a69a3){const _0x2a8e32=a0_0x56eb28;if(providersCache['has'](_0x5a69a3))return providersCache[_0x2a8e32(0x1bf)](_0x5a69a3);try{const _0x454a5a='5d089ef4c7749b3acc4f404cbfced723',_0x158a09=await fetch('https://api.themoviedb.org/3/movie/'+_0x5a69a3+_0x2a8e32(0x1c2)+_0x454a5a),_0x2adcb4=await _0x158a09[_0x2a8e32(0x236)]();let _0x3ab2d0=_0x2adcb4[_0x2a8e32(0x23d)]['BR']?.[_0x2a8e32(0x1cf)]||[];const _0x1c6309={'paramount\x20plus\x20apple\x20tv\x20channel':_0x2a8e32(0x1c4),'paramount\x20plus\x20premium':'paramount\x20plus','paramount+\x20apple\x20tv\x20channel':'paramount\x20plus','paramount+\x20amazon\x20channel':_0x2a8e32(0x1c4),'telecine\x20amazon\x20channel':_0x2a8e32(0x237),'max\x20amazon\x20channel':_0x2a8e32(0x1cc),'star+\x20amazon\x20channel':_0x2a8e32(0x1e7),'mgm\x20amazon\x20channel':_0x2a8e32(0x237),'universal+\x20amazon\x20channel':_0x2a8e32(0x237),'adrenalina\x20pura\x20amazon\x20channel':'amazon\x20prime\x20video','adrenalina\x20pura\x20apple\x20tv\x20channel':_0x2a8e32(0x1b8),'looke\x20amazon\x20channel':'looke'},_0x30a474={'paramount\x20plus':0x213,'max':0x76b,'netflix':0x8,'amazon\x20prime\x20video':0x77,'disney\x20plus':0x151,'globoplay':0x133,'looke':0x2f};return _0x3ab2d0=_0x3ab2d0[_0x2a8e32(0x1c7)](_0xadda9c=>{const _0x4cdad9=_0x2a8e32,_0x5332d3=_0xadda9c[_0x4cdad9(0x1f2)][_0x4cdad9(0x1e8)]();if(_0x1c6309[_0x5332d3]){const _0x4381e2=_0x1c6309[_0x5332d3];return{..._0xadda9c,'provider_name':_0x4381e2,'provider_id':_0x30a474[_0x4381e2]||_0xadda9c['provider_id'],'is_channel':!![],'original_name':_0xadda9c['provider_name']};}return _0xadda9c;}),_0x3ab2d0=_0x3ab2d0[_0x2a8e32(0x1e9)]((_0x251adc,_0x5504c6)=>{const _0x26e433=_0x2a8e32,_0x4e9892=_0x251adc[_0x26e433(0x23f)](_0x28af03=>_0x28af03[_0x26e433(0x1f2)][_0x26e433(0x1e8)]()===_0x5504c6[_0x26e433(0x1f2)]['toLowerCase']());if(!_0x4e9892)_0x251adc['push'](_0x5504c6);else{if(_0x4e9892[_0x26e433(0x1bb)]!==_0x30a474[_0x4e9892[_0x26e433(0x1f2)][_0x26e433(0x1e8)]()]){const _0x29474a=_0x251adc[_0x26e433(0x1e1)](_0x4e9892);_0x251adc[_0x29474a]=_0x5504c6;}}return _0x251adc;},[]),_0x3ab2d0['sort']((_0xac4ef8,_0xd31945)=>{const _0x2f311b=_0x2a8e32,_0x2139b7={'netflix':0x0,'amazon\x20prime\x20video':0x1,'disney\x20plus':0x2,'max':0x3,'paramount\x20plus':0x4,'globoplay':0x5,'looke':0x6},_0xea23b7=_0xac4ef8[_0x2f311b(0x1f2)][_0x2f311b(0x1e8)](),_0x21ade6=_0xd31945[_0x2f311b(0x1f2)][_0x2f311b(0x1e8)](),_0x5c64ca=_0x2139b7[_0xea23b7]!==undefined?_0x2139b7[_0xea23b7]:_0xac4ef8[_0x2f311b(0x1f4)],_0x6dbc6b=_0x2139b7[_0x21ade6]!==undefined?_0x2139b7[_0x21ade6]:_0xd31945[_0x2f311b(0x1f4)];return _0x5c64ca-_0x6dbc6b;}),providersCache[_0x2a8e32(0x1fb)](_0x5a69a3,_0x3ab2d0),_0x3ab2d0;}catch(_0x35a1fd){return console['error'](_0x2a8e32(0x209),_0x35a1fd),[];}}getMovies(),initScrollObserver();
+// Configuración inicial
+let currentPage = 1;
+let isLoading = false;
+let totalPages = 1000;
+let isSearching = false;
+let movies = [];
+const providersCache = new Map();
+
+// Elementos del DOM
+const movieGrid = document.getElementById('movieGrid');
+const searchResultsContainer = document.getElementById('searchResultsContainer');
+const searchResultsGrid = document.getElementById('searchResultsGrid');
+const searchInput = document.getElementById('searchInput');
+
+// Clave API de TMDb
+const API_KEY = '5d089ef4c7749b3acc4f404cbfced723';
+
+// Función principal para obtener películas
+async function getMovies() {
+    if (isLoading || currentPage > totalPages) return;
+
+    isLoading = true;
+    showLoader();
+
+    try {
+        for (let i = 0; i < totalPages; i++) {
+            if (currentPage > totalPages) break;
+
+            let url;
+            if (isSearching) {
+                url = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=pt-BR&page=${currentPage}&query=${encodeURIComponent(currentSearchQuery)}`;
+            } else {
+                url = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=pt-BR&page=${currentPage}`;
+            }
+
+            const response = await fetch(url);
+            const data = await response.json();
+
+            // Filtrar y ordenar películas
+            const filteredMovies = data.results
+                .filter(movie =>
+                    new Date(movie.release_date).getFullYear() > 2020 &&
+                    movie.original_language === 'en' &&
+                    movie.poster_path !== null
+                )
+                .sort((a, b) => new Date(b.release_date) - new Date(a.release_date));
+
+            totalPages = data.total_pages;
+            movies = isSearching ? filteredMovies : [...movies, ...filteredMovies];
+
+            renderMovies(filteredMovies, isSearching);
+            currentPage++;
+        }
+    } catch (error) {
+        console.error('Error al cargar películas:', error);
+    } finally {
+        isLoading = false;
+        hideLoader();
+    }
+}
+
+// Mostrar/ocultar loader
+function showLoader() {
+    document.querySelector('.loader').style.display = 'block';
+}
+
+function hideLoader() {
+    document.querySelector('.loader').style.display = 'none';
+}
+
+// Renderizar películas en el grid
+async function renderMovies(moviesList, isSearchMode = false) {
+    const targetGrid = isSearchMode ? searchResultsGrid : movieGrid;
+    const otherGrid = isSearchMode ? movieGrid : searchResultsGrid;
+
+    if (isSearchMode) {
+        searchResultsContainer.style.display = 'block';
+        otherGrid.style.display = 'none';
+        if (currentPage === 1) targetGrid.innerHTML = '';
+    } else {
+        searchResultsContainer.style.display = 'none';
+        otherGrid.style.display = 'none';
+        movieGrid.style.display = 'grid';
+    }
+
+    // Crear elementos de películas
+    const movieCards = await Promise.all(
+        moviesList
+            .filter(movie => !document.getElementById(`movie-${movie.id}`))
+            .map(async movie => createMovieCard(movie))
+    );
+
+    const fragment = document.createDocumentFragment();
+    movieCards.forEach(card => fragment.appendChild(card));
+    targetGrid.appendChild(fragment);
+
+    // Scroll suave para resultados de búsqueda
+    if (isSearchMode && currentPage === 1) {
+        window.scrollTo({
+            top: searchResultsContainer.offsetTop,
+            behavior: 'smooth'
+        });
+    }
+}
+
+// Crear tarjeta individual de película
+async function createMovieCard(movie) {
+    const card = document.createElement('div');
+    card.className = 'movie-card';
+    card.id = `movie-${movie.id}`;
+
+    // Contenido básico
+    card.innerHTML = `
+        <div class="release-year">${new Date(movie.release_date).getFullYear()}</div>
+        <img class="img-fluid" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" 
+             alt="${movie.title}">
+        <div class="streaming-overlay"></div>
+    `;
+
+    // Procesar proveedores de streaming
+    const overlay = card.querySelector('.streaming-overlay');
+    const providers = await getStreamingProviders(movie.id);
+    //providers.length > 0
+    if (-2 > 0) {
+        // Generar enlaces a proveedores oficiales
+        overlay.innerHTML = providers.map(provider => `
+            <a href="${generateProviderLink(provider, movie)}" target="_blank">
+                <img class="streaming-icon" 
+                     src="https://image.tmdb.org/t/p/w200${provider.logo_path}" 
+                     alt="${provider.provider_name}">
+            </a>
+        `).join('');
+    } else {
+        // Mostrar alternativas de streaming
+        const fallbackLinks = [
+            { name: 'UltraEmbed', url: `https://ultraembed.com/filme/${movie.id}`, icon: 'img/ico.png' },
+            { name: 'VidSrc', url: `https://vidsrc.to/embed/movie/${movie.id}`, icon: 'img/vidsrc.png' },
+            { name: 'SuperEmbed', url: `https://multiembed.mov/directstream.php?video_id=${movie.id}&tmdb=1`, icon: 'img/super.png' }
+        ];
+
+        const fallbackContainer = document.createElement('div');
+        fallbackContainer.style.cssText = `
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+        `;
+
+        fallbackLinks.forEach(link => {
+            const linkElement = document.createElement('a');
+            linkElement.href = link.url;
+            linkElement.target = '_blank';
+            linkElement.style.cssText = `
+                background-color: rgba(255, 0, 0, 0.8);
+                padding: 5px 10px;
+                border-radius: 3px;
+                color: white;
+                text-decoration: none;
+                transition: all 0.3s ease;
+                font-size: 14px;
+                width: 120px;
+                text-align: center;
+                margin: 2px;
+            `;
+
+            // Efectos hover
+            linkElement.onmouseover = () => {
+                linkElement.style.transform = 'scale(1.1)';
+                linkElement.style.backgroundColor = 'rgba(255, 0, 0, 1)';
+            };
+
+            linkElement.onmouseout = () => {
+                linkElement.style.transform = 'scale(1)';
+                linkElement.style.backgroundColor = 'rgba(255, 0, 0, 0.8)';
+            };
+
+            const icon = document.createElement('div');
+            icon.textContent = '▶';
+            linkElement.appendChild(icon);
+            linkElement.appendChild(document.createTextNode(link.name));
+
+            fallbackContainer.appendChild(linkElement);
+        });
+
+        overlay.appendChild(fallbackContainer);
+    }
+
+    return card;
+}
+
+// Generar enlaces para proveedores
+function generateProviderLink(provider, movie) {
+    const providerName = provider.provider_name.toLowerCase();
+    const movieTitle = movie.title.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/\s+/g, '-');
+
+    switch (providerName) {
+        case 'netflix':
+            return `https://www.netflix.com/search/${movieTitle}`;
+        case 'amazon prime video':
+            return `https://www.primevideo.com/search?phrase=${encodeURIComponent(movie.title)}`;
+        case 'disney plus':
+            return 'https://www.disneyplus.com/pt-br';
+        case 'hbo max':
+            return `https://play.hbomax.com/search?q=${encodeURIComponent(movie.title)}`;
+        // ...otros casos para diferentes proveedores
+        default:
+            return '#';
+    }
+}
+
+// Buscar películas
+function searchMovies(query) {
+    const url = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=pt-BR&query=${encodeURIComponent(query)}`;
+
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            movies = data.results;
+            renderMovies(movies, true);
+        })
+        .catch(error => {
+            console.error('Error en la búsqueda:', error);
+        });
+}
+
+// Manejador de búsqueda en tiempo real
+let searchTimeout;
+searchInput.addEventListener('input', event => {
+    const query = event.target.value.trim();
+
+    clearTimeout(searchTimeout);
+    searchTimeout = setTimeout(() => {
+        if (query.length >= 3) {
+            movieGrid.innerHTML = '';
+            searchMovies(query);
+        } else if (query.length === 0) {
+            currentPage = 1;
+            movieGrid.innerHTML = '';
+            getMovies();
+        }
+    }, 500);
+});
+
+// Scroll infinito
+function initScrollObserver() {
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !isLoading && currentPage <= totalPages) {
+                getMovies();
+            }
+        });
+    }, {
+        rootMargin: '100px',
+        threshold: 1
+    });
+
+    observer.observe(document.querySelector('.loader'));
+}
+
+// Obtener proveedores de streaming
+async function getStreamingProviders(movieId) {
+    if (providersCache.has(movieId)) return providersCache.get(movieId);
+
+    try {
+        const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/watch/providers?api_key=${API_KEY}`);
+        const data = await response.json();
+
+        let providers = data.results.BR?.flatrate || [];
+
+        // Normalizar nombres de proveedores
+        const providerMappings = {
+            'paramount+ amazon channel': 'Paramount+',
+            'telecine play': 'Telecine',
+            'hbo go': 'HBO Max'
+        };
+
+        providers = providers.map(provider => ({
+            ...provider,
+            provider_name: providerMappings[provider.provider_name.toLowerCase()] || provider.provider_name
+        }));
+
+        // Ordenar por prioridad
+        providers.sort((a, b) => a.display_priority - b.display_priority);
+
+        providersCache.set(movieId, providers);
+        return providers;
+    } catch (error) {
+        console.error('Error al obtener proveedores:', error);
+        return [];
+    }
+}
+
+// Inicializar
+getMovies();
+initScrollObserver();
