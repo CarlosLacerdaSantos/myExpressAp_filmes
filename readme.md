@@ -43,6 +43,8 @@ git clone https://github.com/CarlosLacerdaSantos/myExpressAp_filmes.git
 
 # Acesse a pasta do projeto
 cd myExpressAp_filmes
+# execute os comandos
+npm install
 node ./bin/www 
 # No navegador abra 
 http://localhost:3001
