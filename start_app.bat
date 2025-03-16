@@ -49,7 +49,9 @@ cd /d "%~dp0"
 start /min cmd /c "npm start"
 timeout /t 5 /nobreak >nul
 start http://localhost:3002
-cls
+cls...
+start cmd /k "%~dp0start_app.bat"
+exit
 echo Servidor rodando em http://localhost:3002
 echo Pressione qualquer tecla para encerrar o servidor
 pause
