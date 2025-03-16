@@ -21,46 +21,61 @@
 
     <header>
         <h1>Cine Top</h1>
+        <div class="commercial-banner">
+            <p>Anúncio: Assine agora e ganhe 30% de desconto!</p> <br>
+            <a href="mailto:xyzsqur2@proton.me">xyzsqur2@proton.me</a>
+        </div>
         <% for (let i=0; i < id.length; i++) { %>
             <p>
                 <%= id[i].id %>
             </p>
             <% } %>
-              
-             <!--    <button id="btn" class="btn" onclick="carregaScript('series')" style="color: aliceblue;">series</button> -->
-                <script>
-                    let scriptAtual = null;
-
-                    function carregaScript(tipo) {
-                        // Remove o script anterior
-                        if (scriptAtual) {
-                            scriptAtual.remove();
-                        }
-
-                        // Cria o novo script
-                        const novoScript = document.createElement('script');
-                        novoScript.src = (tipo === 'filmes') ? 'scripttyy.js' : 'myseries.js';
-
-                        // Define o evento onload para inicializar o script carregado
-                        novoScript.src = (tipo === 'filmes')
-                            ? 'scripttyy.js?v=' + Date.now()
-                            : 'myseries.js?v=' + Date.now();
-                        novoScript.onload = () => {
-                            if (tipo === 'filmes' && window.FilmesAPI) {
-                                FilmesAPI.init(); // Chama a função de inicialização
-                            } else if (tipo === 'series' && window.SeriesAPI) {
-                                SeriesAPI.init(); // Chama a função de inicialização
-                            }
-                        };
-                       
-
-                        // Adiciona à página
-                        document.head.appendChild(novoScript);
-                        scriptAtual = novoScript;
-                    }
-                </script>
-
     </header>
+
+    <!-- Add this CSS to your stylesheet.css file -->
+    <style>
+    header {
+        position: sticky;
+        top: 0;
+        background-color: transparent;
+        z-index: 1000;
+        padding: 10px;
+        width: 100%;
+    }
+
+    header h1 {
+        transition: opacity 0.3s ease;
+    }
+
+    .header-hidden h1 {
+        opacity: 0;
+        height: 0;
+        margin: 0;
+        padding: 0;
+        transition: all 0.3s ease;
+    }
+
+    .commercial-banner {
+        background-color: #f8f9fa;
+        padding: 10px;
+        border-radius: 5px;
+        margin: 10px 0;
+        max-width: 300px;
+        border-left: 4px solid #007bff;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 1001;
+        opacity: 0.95;
+    }
+
+    .commercial-banner p {
+        margin: 0;
+        color: #333;
+        font-size: 0.9rem;
+    }
+    </style>
 
     <div class="search-container">
         <input type="text" id="searchInput" placeholder="Pesquisar filmes...">
@@ -86,7 +101,10 @@
     <div class="loader">
         <div class="spinner"></div>
     </div>
-    <div><br></div><div><br></div><div><br></div><div><br></div>
+    <div><br></div>
+    <div><br></div>
+    <div><br></div>
+    <div><br></div>
     <footer class="footer" style="display: none;">
         <div><br></div>
         <p>Get in touch: <a href="mailto:xyzsqur2@proton.me">xyzsqur2@proton.me</a></p>
@@ -187,7 +205,7 @@
             commentSeriesGrid();
             //commentScriptTag();
             document.getElementById('movieGrid').style.display = 'grid';
-                }
+        }
         function reloadSeries() {
             uncommentSeriesGrid();
             commentMovieGrid();
@@ -203,3 +221,15 @@
 </body>
 
 </html>
+
+<script>
+// Add this at the beginning of your script section
+window.addEventListener('scroll', function() {
+    const header = document.querySelector('header');
+    if (window.scrollY > 50) {
+        header.classList.add('header-hidden');
+    } else {
+        header.classList.remove('header-hidden');
+    }
+});
+</script>
