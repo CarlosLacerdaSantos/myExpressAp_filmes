@@ -38,6 +38,12 @@ if %ERRORLEVEL% neq 0 (
     exit
 )
 
+echo Verificando política de execução do PowerShell...
+powershell -Command "if ((Get-ExecutionPolicy) -eq 'Restricted') { Set-ExecutionPolicy Unrestricted -Scope CurrentUser -Force }"
+
+echo Instalando dependências do npm...
+npm install
+
 echo Iniciando servidor...
 cd /d "%~dp0"
 start /min cmd /c "npm start"
